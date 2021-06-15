@@ -11,7 +11,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./src:/src
+      - ./app:/app
       - ./static:/static
       - ./config/nginx:/etc/nginx/conf.d
       #- ./config/certbot/conf:/etc/letsencrypt  #for SSL purpose
@@ -25,9 +25,9 @@ services:
     build: .
     restart: always
     volumes:
-      - ./src:/src
+      - ./app:/app
       #- ./workspace:/workspace  #for local storage purpose
-      #- ~/.aws/:/src/.aws:ro    #for AWS S3 access purpose
+      #- ~/.aws/:/app/.aws:ro    #for AWS S3 access purpose
     env_file: .env               #currently unused
     command: uvicorn main:app --reload --host 0.0.0.0
 

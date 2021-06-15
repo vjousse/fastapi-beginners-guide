@@ -13,5 +13,5 @@ RUN pip install -r /config/requirements.pip
 RUN apt -y update
 RUN apt list --upgradable
 #RUN apt upgrade
-RUN mkdir -p /src
-WORKDIR /src
+RUN mkdir -p /app
+WORKDIR /app
