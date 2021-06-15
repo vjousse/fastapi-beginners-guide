@@ -12,7 +12,7 @@ services:
       - "443:443"
     volumes:
       - ./app:/app
-      - ./static:/static
+      - ./public:/public
       - ./config/nginx:/etc/nginx/conf.d
       #- ./config/certbot/conf:/etc/letsencrypt  #for SSL purpose
       #- ./config/certbot/www:/var/www/certbot   #for SSL purpose
