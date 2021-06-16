@@ -13,5 +13,6 @@ RUN pip install -r /config/requirements.pip
 RUN apt -y update
 RUN apt list --upgradable
 #RUN apt upgrade
-RUN mkdir -p /app
-WORKDIR /app
+RUN mkdir -p /fastapi-guide/app
+RUN mkdir -p /fastapi-guide/public
+WORKDIR /fastapi-guide
