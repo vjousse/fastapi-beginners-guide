@@ -5,6 +5,13 @@ from tortoise import fields
 from tortoise.models import Model
 from tortoise.contrib.fastapi import register_tortoise
 
+# quick and dirty fix for https://github.com/tortoise/tortoise-orm/issues/529
+# patch Tortoise's FastAPI contrib module with custom logger
+import logging
+from tortoise.contrib import fastapi
+fastapi.logging = logging.getLogger('uvicorn')
+# end of patch
+
 app = FastAPI()
 
 app.mount("/public", StaticFiles(directory="public"), name="public")
