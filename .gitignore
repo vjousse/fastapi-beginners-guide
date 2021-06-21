@@ -8,7 +8,6 @@ config/certbot/conf/*
 .env
 
 # Byte-compiled / optimized / DLL files
-__pycache__/
 *.py[cod]
 *$py.class
 
@@ -17,5 +16,4 @@ __pycache__/
 
 # old files 
 *.old
-
 db.sqlite3*
