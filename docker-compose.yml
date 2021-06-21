@@ -25,9 +25,8 @@ services:
     restart: always
     volumes:
       - ./app:/fastapi-guide/app
-      #- ./workspace:/workspace  #for local storage purpose
       #- ~/.aws/:/app/.aws:ro    #for AWS S3 access purpose
     env_file: .env               #currently unused
-    command: uvicorn app.main:app --reload --host 0.0.0.0
+    command: uvicorn app.main:app --reload --reload-dir app --host 0.0.0.0
 
 

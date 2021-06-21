@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Articles list</title>
+    <link href="{{ url_for('public', path='/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+    <h1>Liste des articles</h1>
+    <ul>
+    {% for article in articles %}
+        <li>{{ article.id }} - {{ article.title }}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
