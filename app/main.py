@@ -76,3 +76,13 @@ async def api_articles_list():
     articles = await Article.all().order_by('created_at')
 
     return articles
+
+
+@app.get("/", include_in_schema=False)
+async def root(request: Request):
+
+    return templates.TemplateResponse(
+        "home.html",
+        {
+            "request": request
+        })
