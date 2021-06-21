@@ -17,3 +17,5 @@ __pycache__/
 
 # old files 
 *.old
+
+db.sqlite3*
