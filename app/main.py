@@ -5,6 +5,14 @@ from tortoise import fields
 from tortoise.models import Model
 from tortoise.contrib.fastapi import register_tortoise
 
+
+# tortoise logging patch
+import logging
+from tortoise.contrib import fastapi
+fastapi.logging = logging.getLogger('uvicorn')
+# end of patch
+
+
 app = FastAPI()
 
 app.mount("/public", StaticFiles(directory="public"), name="public")
