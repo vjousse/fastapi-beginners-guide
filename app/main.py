@@ -6,7 +6,7 @@ from tortoise.models import Model
 from tortoise.contrib.fastapi import register_tortoise
 
 
-# tortoise logging patch
+# tortoise logging patch (https://github.com/tortoise/tortoise-orm/issues/529)
 import logging
 from tortoise.contrib import fastapi
 fastapi.logging = logging.getLogger('uvicorn')
