@@ -6,6 +6,7 @@ ENV LANG=C.UTF-8 LC_ALL=C.UTF-8 PYTHONUNBUFFERED=1
 MAINTAINER Vincent Porte "vincent@neuralia.co"
 ENV REFRESHED_AT 2021-06-15
 
+RUN mkdir -p /workspace
 RUN mkdir -p /config
 ADD /config/requirements.pip /config/
 RUN pip install --upgrade pip

@@ -2,6 +2,7 @@
 
 
 # storage
+workspace/*
 
 # configuration files
 config/certbot/conf/*

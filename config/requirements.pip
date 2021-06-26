@@ -1,2 +1,5 @@
 fastapi[all]
 tortoise-orm
+markdown-it-py[plugins]
+boto3
+python-decouple==3.3
