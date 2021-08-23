@@ -1,19 +1,10 @@
 import os
 import pytest
-import asyncio
 from tortoise.contrib.test import finalizer, initializer
 from app.core.config import settings
 from typing import Generator
 from fastapi.testclient import TestClient
 from app.main import app
-from app.models.article import Article
-from app.tests.utils.article import create_random_article
-
-
-@pytest.fixture(scope="module")
-def random_article(event_loop: asyncio.AbstractEventLoop) -> Article:
-    article = event_loop.run_until_complete(create_random_article())
-    return article
 
 
 @pytest.fixture(scope="module")
