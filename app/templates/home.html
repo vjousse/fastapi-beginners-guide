@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link href="{{ url_for('public', path='/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+    <h1>Home title</h1>
+    <p>Current url: <strong>{{ request.url }}</strong></p>
+    <p><a href="{{ url_for('articles_list') }}">articles list</p>
+    <p><a href="{{ url_for('api_articles_list') }}">articles api list</p>
+</body>
+</html>
+

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Articles create</title>
+    <link href="{{ url_for('public', path='/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+    <p>Article created: <strong>{{ article }}</strong></p>
+    <p><a href="{{ url_for('articles_list') }}">back to list</p>
+</body>
+</html>
+

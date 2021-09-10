@@ -1,0 +1,32 @@
+# https://docs.docker.com/compose/compose-file/compose-versioning/#version-3
+# https://memotut.com/build-fastapi-+-uvicorn-+-nginx-with-docker-compose-02ed7/
+# https://medium.com/analytics-vidhya/how-to-deploy-a-python-api-with-fastapi-with-nginx-and-docker-1328cbf41bc
+
+version: '3.7'
+services:
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./public:/public
+      - ./config/nginx:/etc/nginx/conf.d
+      #- ./config/certbot/conf:/etc/letsencrypt  #for SSL purpose
+      #- ./config/certbot/www:/var/www/certbot   #for SSL purpose
+      - ./access.log:/var/log/nginx
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+    depends_on:
+      - web
+
+  web:
+    build: .
+    restart: always
+    volumes:
+      - ./app:/fastapi-guide/app
+      #- ~/.aws/:/app/.aws:ro    #for AWS S3 access purpose
+    env_file: .env               #currently unused
+    command: uvicorn app.main:app --reload --reload-dir app --host 0.0.0.0
+
+

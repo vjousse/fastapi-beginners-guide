@@ -1,0 +1,4 @@
+fastapi[all]
+tortoise-orm
+pytest
+asynctest
