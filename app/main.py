@@ -29,5 +29,3 @@ register_tortoise(
 app.include_router(
     articles_views,
     tags=["Articles"])
-
-print(articles_views.url_path_for('articles_list'))
