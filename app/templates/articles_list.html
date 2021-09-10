@@ -11,5 +11,7 @@
         <li>{{ article.id }} - {{ article.title }}</li>
     {% endfor %}
     </ul>
+    <p><a href="{{ url_for('articles_create') }}">new article</a></p>
+
 </body>
 </html>

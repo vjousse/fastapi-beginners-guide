@@ -1,11 +1,11 @@
 from fastapi import APIRouter
 from fastapi import Request
-from fastapi.templating import Jinja2Templates
+from app.core.config import templates
 from app.models.article import Article
 
 articles_views = APIRouter()
 
-templates = Jinja2Templates(directory="app/templates")
+#templates = Jinja2Templates(directory="app/templates")
 
 @articles_views.get("/articles/create", include_in_schema=False)
 async def articles_create(request: Request):
