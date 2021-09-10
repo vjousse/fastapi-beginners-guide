@@ -1,7 +1,11 @@
-from fastapi import FastAPI #, Request
+from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from tortoise.contrib.fastapi import register_tortoise
 from app.views.article import articles_views
+
+# added to prevent following warning message
+# RuntimeWarning: Module "app.main" has no models
+from app.models.article import Article
 
 # tortoise logging patch (https://github.com/tortoise/tortoise-orm/issues/529)
 import logging

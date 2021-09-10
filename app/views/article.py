@@ -3,9 +3,6 @@ from fastapi import Request
 from fastapi.templating import Jinja2Templates
 from app.models.article import Article
 
-from app.main import app
-from app.main import templates
-
 articles_views = APIRouter()
 
 templates = Jinja2Templates(directory="app/templates")
