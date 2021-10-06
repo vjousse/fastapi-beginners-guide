@@ -18,7 +18,7 @@ def test_create_article(client: TestClient,
 
     article = event_loop.run_until_complete(create_article())
 
-    response = client.get("api/articles")
+    response = client.get("articles")
     assert response.status_code == 200
     content = response.json()
     first_article = content[0]
