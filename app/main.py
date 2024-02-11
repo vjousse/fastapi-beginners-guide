@@ -65,7 +65,7 @@ async def articles_create(request: Request, db: Session = Depends(get_db)):
 
 @app.get("/articles", include_in_schema=False)
 async def articles_list(request: Request, db: Session = Depends(get_db)):
-    articles_statement = select(Article)
+    articles_statement = select(Article).order_by(Article.created_at)
     articles = db.scalars(articles_statement).all()
 
     return templates.TemplateResponse(
