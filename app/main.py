@@ -21,4 +21,4 @@ app.include_router(articles_views, tags=["Articles"])
 
 @app.get("/", include_in_schema=False)
 async def root(request: Request):
-    return templates.TemplateResponse("home.html", {"request": request})
+    return templates.TemplateResponse(request, "home.html")

@@ -19,7 +19,7 @@ async def articles_create(request: Request, db: Session = Depends(get_db)):
     db.refresh(article)
 
     return templates.TemplateResponse(
-        "articles_create.html", {"request": request, "article": article}
+        request, "articles_create.html", {"article": article}
     )
 
 
@@ -29,7 +29,7 @@ async def articles_list(request: Request, db: Session = Depends(get_db)):
     articles = db.scalars(articles_statement).all()
 
     return templates.TemplateResponse(
-        "articles_list.html", {"request": request, "articles": articles}
+        request, "articles_list.html", {"articles": articles}
     )
 
 
