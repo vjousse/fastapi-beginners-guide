@@ -12,7 +12,7 @@ def test_create_article(client: TestClient, session: TestingSessionLocal) -> Non
     session.add(article)
     session.commit()
 
-    response = client.get("api/articles")
+    response = client.get("articles")
     assert response.status_code == 200
     content = response.json()
     assert len(content) == 1
